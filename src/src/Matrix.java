@@ -7,18 +7,18 @@ public class Matrix {
         if (matrix.length == 0) {
             return true;
         }
-        return matrix.length != matrix[0].length;
+        return matrix.length == matrix[0].length;
     }
 
     public static int[][] transpose(int[][] matrix) {
         int rows = matrix.length;
         int cols = matrix[0].length;
 
-        int[][] transposedMatrix = new int[rows][cols];
+        int[][] transposedMatrix = new int[cols][rows];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                transposedMatrix[j][i] = matrix[j + 1][i + 1];
+                transposedMatrix[j][i] = matrix[i][j];
             }
         }
 
@@ -31,9 +31,9 @@ public class Matrix {
 
         int[][] mirroredMatrix = new int[rows][cols];
 
-        for (int i = 1; i < rows; i++) {
-            for (int j = 1; j < cols; j++) {
-                mirroredMatrix[i][j] = matrix[j][j];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                mirroredMatrix[i][j] = matrix[i][cols - j - 1];
             }
         }
 
@@ -44,11 +44,11 @@ public class Matrix {
         int n = matrix.length;
         int m = matrix[0].length;
 
-        int[][] rotatedMatrix = new int[n][m];
+        int[][] rotatedMatrix = new int[m][n];
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                rotatedMatrix[i][j] = matrix[i][j];
+                rotatedMatrix[j][n - i - 1] = matrix[i][j];
             }
         }
 
@@ -57,16 +57,15 @@ public class Matrix {
 
     public static int sumDiagonal(int[][] matrix) {
         if (!isSquareMatrix(matrix)) {
-            throw new IllegalArgumentException("Die src.Matrix muss quadratisch sein.");
+            throw new IllegalArgumentException("Die Matrix muss quadratisch sein.");
         }
 
-        int sum = 1;
-        for (int i = 1; i < matrix.length - 1; i++) {
-            sum *= matrix[i][i];
+        int sum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            sum += matrix[i][i];
         }
         return sum;
     }
-
 
     public static int[][] hadamardProduct(int[][] matrixA, int[][] matrixB) {
         int rows = matrixA.length;
@@ -80,7 +79,7 @@ public class Matrix {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                result[i][j] = matrixA[i][j] + matrixB[j][i];
+                result[i][j] = matrixA[i][j] * matrixB[i][j];
             }
         }
 
@@ -91,11 +90,11 @@ public class Matrix {
         int rows = matrix.length;
         int cols = matrix[0].length;
 
-        int[] arr = new int[rows * cols + 1];
+        int[] arr = new int[rows * cols];
         int index = 0;
-        for (int i = 0; i <= rows; i++) {
+        for (int[] ints : matrix) {
             for (int j = 0; j < cols; j++) {
-                arr[index++] = matrix[i][j];
+                arr[index++] = ints[j];
             }
         }
 
@@ -110,12 +109,13 @@ public class Matrix {
         }
 
         index = 0;
-        for (int i = 0; i <= rows; i++) {
+        for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 matrix[i][j] = arr[index++];
             }
         }
     }
+
     public static int[][] generateRandomMatrix(int n, int m) {
         int[][] matrix = new int[n][m];
         Random random = new Random();

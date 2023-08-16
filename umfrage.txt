@@ -1,17 +1,19 @@
 Welchem Geschlecht fühlst du dich zugehörig?
 
 Wie lang hast du für das Lösen der Aufgaben gebraucht (in Minuten:Sekunden)?
+1:17
 
 Teile hier deinen Link zum Verlauf
+https://chat.openai.com/share/89737d1b-08e5-452c-a2e8-d59c58b59a3f
 
 Welcher Gruppe warst du zugeteilt?
-[] mit Unterstützung von ChatGPT
+[X] mit Unterstützung von ChatGPT
 [] ohne Unterstützung von ChatGPT
 
 Wie würdest du deine allgemeine Programmiererfahrung einschätzen?
 [] sehr gering
 [] gering
-[] mittel
+[X] mittel
 [] groß
 [] sehr groß
 
@@ -19,7 +21,7 @@ Wie würdest du deine Programmiererfahrung mit Java einschätzen?
 [] sehr gering
 [] gering
 [] mittel
-[] groß
+[X] groß
 [] sehr groß
 
 Wie groß ist deine Erfahrung mit ChatGPT generell (vor dem Versuch)
@@ -27,17 +29,20 @@ Wie groß ist deine Erfahrung mit ChatGPT generell (vor dem Versuch)
 [] gering
 [] mittel
 [] groß
-[] sehr groß
+[X] sehr groß
 
 Wie groß ist deine Erfahrung mit ChatGPT im Bezug auf Softwareentwicklung (vor dem Versuch)
 [] sehr gering
 [] gering
 [] mittel
-[] groß
+[X] groß
 [] sehr groß
 
 Welche IDE nutzt du?
+IntelliJ
 
 Wofür hast du ChatGPT bereits genutzt?
+Code überprüfung, Code generation, Text generation, Listen erstellung, Text summary
 
 Hast du Anmerkungen zum Versuch?
+Aufgrund der bereits feststehenden Fehler habe ich den Code kopiert, einmal ausgeführt -> ChatGPT korrigieren lassen und den Code ersetzt -> keine Error Logs mehr.
